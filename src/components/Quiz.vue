@@ -3,40 +3,25 @@
     <section class="section">
       <div class="container">
         <img alt="Vogelbild" :src="answers[solution_idx].image">
-      </div>
-      <div >
-        <AnswerButton
-          ref="answerButton"
-          :answer="answers[0].name"
-          :isSolution="0===this.solution_idx"
+        <div class="answers-container">
+          <AnswerButton
+            v-for="(answer, idx) in answers"
+            v-bind:key="answer.name"
+            ref="answerButton"
+            :answer="answer.name"
+            :isSolution="idx===solution_idx"
           />
-        <AnswerButton
-          ref="answerButton1"
-          :answer="answers[1].name"
-          :isSolution="1===this.solution_idx"
-        />
-        <AnswerButton
-          ref="answerButton2"
-          :answer="answers[2].name"
-          :isSolution="2===this.solution_idx"
-        />
-        <AnswerButton
-          ref="answerButton3"
-          :answer="answers[3].name"
-          :isSolution="3===this.solution_idx"
-        />
-      </div>
-        <div>
+        </div>
+        <div class="next-button-container">
           <button @click="next()" class="button is-rounded is-outlined is-medium">Next</button>
         </div>
-      </section>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 // todos
-// refactor button wiederholung loswerden, nicht add und remove class in answerButton
-// buttons schön anordnen
 // space über hero loswerden
 // audio abspielen
 // auswählen ob audio oder bilder
@@ -63,10 +48,9 @@ export default {
     next() {
       this.solution_idx = Math.floor(Math.random() * 4);
       this.answers = this.choices();
-      this.$refs.answerButton.reset();
-      this.$refs.answerButton1.reset();
-      this.$refs.answerButton2.reset();
-      this.$refs.answerButton3.reset();
+      for (let i = 0; i < this.$refs.answerButton.length; i += 1) {
+        this.$refs.answerButton[i].reset();
+      }
     },
     choices() {
       const answers = [];
@@ -85,21 +69,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 img {
-height:300px
+  height: 300px;
+}
+.answers-container {
+  display: flex;
+  justify-content: center;
+}
+
+.next-button-container {
+  padding: 10px;
 }
 </style>

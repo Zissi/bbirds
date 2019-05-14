@@ -1,7 +1,7 @@
 <template>
-  <div class="answer-button" id="quiz">
+  <div class="answer-button-container">
     <button
-      ref="answerButton"
+      ref="button"
       class="button is-info is-light is-outlined is-medium is-rounded"
       @click="check"
     >{{answer}}</button>
@@ -26,9 +26,9 @@ export default {
       }
     },
     reset() {
-      this.$refs.answerButton.classList.remove('is-success');
-      this.$refs.answerButton.classList.remove('is-danger');
-      this.$refs.answerButton.classList.add('is-outlined');
+      this.$refs.button.classList.remove('is-success');
+      this.$refs.button.classList.remove('is-danger');
+      this.$refs.button.classList.add('is-outlined');
     },
   },
 };
@@ -36,21 +36,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 button {
   width: 200px;
+}
+.answer-button-container {
+  padding: 3px;
 }
 </style>

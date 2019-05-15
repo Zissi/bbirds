@@ -2,7 +2,16 @@
   <div class="quiz" id="quiz">
     <section class="section">
       <div class="container">
+        <div class="vogelbild">
         <img alt="Vogelbild" :src="answers[solution_idx].image">
+        </div>
+        <div class="vogelsound">
+        <audio controls ref="player">
+          <source :src="answers[solution_idx].audio.fileName" type="audio/ogg">
+          Your browser does not support the audio element.
+        </audio>
+        </div>
+
         <div class="answers-container">
           <AnswerButton
             v-for="(answer, idx) in answers"
@@ -44,6 +53,11 @@ export default {
       solution_idx: Math.floor(Math.random() * 4),
     };
   },
+  mounted() {
+    this.$watch('answers', function () {
+      this.$refs.player.load();
+    });
+  },
   methods: {
     next() {
       this.solution_idx = Math.floor(Math.random() * 4);
@@ -78,6 +92,14 @@ img {
 }
 
 .next-button-container {
+  padding: 10px;
+}
+
+.vogelbild{
+  padding: 10px;
+}
+
+.vogelsound{
   padding: 10px;
 }
 </style>

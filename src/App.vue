@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <section class="hero is-success">
       <div class="hero-body">
         <div class="container">
@@ -24,14 +25,14 @@ export default {
       message: 'Welcome to BBirds',
       /* eslint-disable global-require */
       birds: [
-        { name: 'Rotkehlchen', image: require('./assets/rotkehlchen.png') },
-        { name: 'Kohlmeise', image: require('./assets/kohlmeise.jpg') },
-        { name: 'Star', image: require('./assets/stare.jpg') },
-        { name: 'Schwanzmeise', image: require('./assets/schwanzmeise.jpg') },
-        { name: 'Blaumeise', image: require('./assets/blaumeise.jpg') },
-        { name: 'Mauersegler', image: require('./assets/mauersegler.jpg') },
-        { name: 'Stockente', image: require('./assets/stockente.jpg') },
-        { name: 'Turmfalke', image: require('./assets/turmfalke.jpg') },
+        { name: 'Rotkehlchen', image: require('./assets/rotkehlchen.png'), audio: { fileName: require('./assets/rotkehlchen.ogg'), attribution: 'Vladimir Yu. Arkhipov, Arkhivov' } },
+        { name: 'Kohlmeise', image: require('./assets/kohlmeise.jpg'), audio: { fileName: require('./assets/kohlmeise.ogg'), attribution: 'Dengis Chantal' } },
+        { name: 'Star', image: require('./assets/stare.jpg'), audio: { fileName: require('./assets/star.mp3'), attribution: 'Bodo Sonnenburg' } },
+        { name: 'Schwanzmeise', image: require('./assets/schwanzmeise.jpg'), audio: { fileName: require('./assets/schwanzmeise.mp3'), attribution: 'Beatrix Saadi-Varchmin' } },
+        { name: 'Blaumeise', image: require('./assets/blaumeise.jpg'), audio: { fileName: require('./assets/blaumeise.ogg'), attribution: 'Aubrey John Williams' } },
+        { name: 'Mauersegler', image: require('./assets/mauersegler.jpg'), audio: { fileName: require('./assets/mauersegler.ogg'), attribution: 'Jugrü' } },
+        { name: 'Stockente', image: require('./assets/stockente.jpg'), audio: { fileName: require('./assets/stockente.ogg'), attribution: 'Jonathon Jongsma' } },
+        { name: 'Turmfalke', image: require('./assets/turmfalke.jpg'), audio: { fileName: require('./assets/turmfalke.mp3'), attribution: 'Sonnenburg' } },
       ],
       /* eslint-enable global-require */
     };

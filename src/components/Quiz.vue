@@ -2,11 +2,11 @@
   <div class="quiz" id="quiz">
     <section class="section">
       <div class="container">
-        <div class="vogelbild">
+        <div class="vogelbild" v-if="playmode==='pictures'|| playmode === 'both'">
         <img alt="Vogelbild" :src="answers[solution_idx].image">
         </div>
-        <div class="vogelsound">
-        <audio controls ref="player">
+        <div class="vogelsound" v-if="playmode==='sounds'|| playmode === 'both'">
+        <audio controls autoplay ref="player">
           <source :src="answers[solution_idx].audio.fileName" type="audio/ogg">
           Your browser does not support the audio element.
         </audio>
@@ -44,8 +44,8 @@ export default {
     AnswerButton,
   },
   props: {
-    msg: String,
     birds: Array,
+    playmode: String,
   },
   data() {
     return {

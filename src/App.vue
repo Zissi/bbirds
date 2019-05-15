@@ -1,14 +1,27 @@
 <template>
   <div id="app">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-    <section class="hero is-success">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">Bbirds – Berliner Vögel</h1>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"
+    >
+    <nav class="navbar is-success" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item title">Bbirds – Berliner Vögel</a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Spielmodus</a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" @click="playmode='pictures'">Bilder</a>
+              <a class="navbar-item" @click="playmode='sounds'">Sound</a>
+              <a class="navbar-item" @click="playmode='both'">Beides</a>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-    <Quiz :birds="birds"/>
+    </nav>
+    <Quiz :birds="birds" :playmode="playmode"/>
   </div>
 </template>
 
@@ -22,17 +35,185 @@ export default {
   },
   data() {
     return {
-      message: 'Welcome to BBirds',
+      playmode: 'both',
       /* eslint-disable global-require */
       birds: [
-        { name: 'Rotkehlchen', image: require('./assets/rotkehlchen.png'), audio: { fileName: require('./assets/rotkehlchen.ogg'), attribution: 'Vladimir Yu. Arkhipov, Arkhivov' } },
-        { name: 'Kohlmeise', image: require('./assets/kohlmeise.jpg'), audio: { fileName: require('./assets/kohlmeise.ogg'), attribution: 'Dengis Chantal' } },
-        { name: 'Star', image: require('./assets/stare.jpg'), audio: { fileName: require('./assets/star.mp3'), attribution: 'Bodo Sonnenburg' } },
-        { name: 'Schwanzmeise', image: require('./assets/schwanzmeise.jpg'), audio: { fileName: require('./assets/schwanzmeise.mp3'), attribution: 'Beatrix Saadi-Varchmin' } },
-        { name: 'Blaumeise', image: require('./assets/blaumeise.jpg'), audio: { fileName: require('./assets/blaumeise.ogg'), attribution: 'Aubrey John Williams' } },
-        { name: 'Mauersegler', image: require('./assets/mauersegler.jpg'), audio: { fileName: require('./assets/mauersegler.ogg'), attribution: 'Jugrü' } },
-        { name: 'Stockente', image: require('./assets/stockente.jpg'), audio: { fileName: require('./assets/stockente.ogg'), attribution: 'Jonathon Jongsma' } },
-        { name: 'Turmfalke', image: require('./assets/turmfalke.jpg'), audio: { fileName: require('./assets/turmfalke.mp3'), attribution: 'Sonnenburg' } },
+        {
+          name: 'Rotkehlchen',
+          image: require('./assets/rotkehlchen.png'),
+          audio: {
+            fileName: require('./assets/rotkehlchen.ogg'),
+            attribution: 'Vladimir Yu. Arkhipov, Arkhivov',
+          },
+        },
+        {
+          name: 'Kohlmeise',
+          image: require('./assets/kohlmeise.jpg'),
+          audio: {
+            fileName: require('./assets/kohlmeise.ogg'),
+            attribution: 'Dengis Chantal',
+          },
+        },
+        {
+          name: 'Star',
+          image: require('./assets/stare.jpg'),
+          audio: {
+            fileName: require('./assets/star.mp3'),
+            attribution: 'Bodo Sonnenburg',
+          },
+        },
+        {
+          name: 'Schwanzmeise',
+          image: require('./assets/schwanzmeise.jpg'),
+          audio: {
+            fileName: require('./assets/schwanzmeise.mp3'),
+            attribution: 'Beatrix Saadi-Varchmin',
+          },
+        },
+        {
+          name: 'Blaumeise',
+          image: require('./assets/blaumeise.jpg'),
+          audio: {
+            fileName: require('./assets/blaumeise.ogg'),
+            attribution: 'Aubrey John Williams',
+          },
+        },
+        {
+          name: 'Mauersegler',
+          image: require('./assets/mauersegler.jpg'),
+          audio: {
+            fileName: require('./assets/mauersegler.ogg'),
+            attribution: 'Jugrü',
+          },
+        },
+        {
+          name: 'Stockente',
+          image: require('./assets/stockente.jpg'),
+          audio: {
+            fileName: require('./assets/stockente.ogg'),
+            attribution: 'Jonathon Jongsma',
+          },
+        },
+        {
+          name: 'Turmfalke',
+          image: require('./assets/turmfalke.jpg'),
+          audio: {
+            fileName: require('./assets/turmfalke.mp3'),
+            attribution: 'Sonnenburg',
+          },
+        },
+        {
+          name: 'Nachtigall',
+          image: require('./assets/nachtigall.jpg'),
+          audio: {
+            fileName: require('./assets/nachtigall.ogg'),
+            attribution: 'Sonnenburg',
+          },
+        },
+        {
+          name: 'Kranich',
+          image: require('./assets/kranich.jpg'),
+          audio: {
+            fileName: require('./assets/kranich.mp3'),
+            attribution: 'Stephan Risch',
+          },
+        },
+        {
+          name: 'Feldlerche',
+          image: require('./assets/feldlerche.jpg'),
+          audio: {
+            fileName: require('./assets/feldlerche.ogg'),
+            attribution: 'Guido Gerding',
+          },
+        },
+        {
+          name: 'Amsel',
+          image: require('./assets/amsel.jpg'),
+          audio: {
+            fileName: require('./assets/amsel.ogg'),
+            attribution: 'Anton',
+          },
+        },
+        {
+          name: 'Buchfink',
+          image: require('./assets/buchfink.jpg'),
+          audio: {
+            fileName: require('./assets/buchfink.ogg'),
+            attribution: 'Herr Küppers',
+          },
+        },
+        {
+          name: 'Bachstelze',
+          image: require('./assets/bachstelze.jpg'),
+          audio: {
+            fileName: require('./assets/bachstelze.mp3'),
+            attribution: 'Herr Küppers',
+          },
+        },
+        {
+          name: 'Grünspecht',
+          image: require('./assets/grünspecht.jpg'),
+          audio: {
+            fileName: require('./assets/grünspecht.mp3'),
+            attribution: 'Marie-Lan Taÿ Pamart',
+          },
+        },
+        {
+          name: 'Buntspecht',
+          image: require('./assets/buntspecht.jpg'),
+          audio: {
+            fileName: require('./assets/buntspecht.ogg'),
+            attribution: 'Herr Küppers',
+          },
+        },
+        {
+          name: 'Mönchsgrasmücke',
+          image: require('./assets/mönchsgrasmücke.jpg'),
+          audio: {
+            fileName: require('./assets/mönchsgrasmücke.ogg'),
+            attribution: 'Aubrey John Williams ',
+          },
+        },
+        {
+          name: 'Spatz',
+          image: require('./assets/spatz.jpg'),
+          audio: {
+            fileName: require('./assets/spatz.ogg'),
+            attribution: 'Aubrey John Williams',
+          },
+        },
+        {
+          name: 'Zaunkönig',
+          image: require('./assets/zaunkönig.jpg'),
+          audio: {
+            fileName: require('./assets/zaunkönig.mp3'),
+            attribution: 'Marie-Lan Taÿ Pamart',
+          },
+        },
+        {
+          name: 'Zilpzalp',
+          image: require('./assets/zilpzalp.jpg'),
+          audio: {
+            fileName: require('./assets/zilpzalp.ogg'),
+            attribution: 'T.Voekler',
+          },
+        },
+        {
+          name: 'Blässhuhn',
+          image: require('./assets/blässhuhn.jpg'),
+          audio: {
+            fileName: require('./assets/blässhuhn.mp3'),
+            attribution: 'Jorge Leitão',
+          },
+        },
+        {
+          name: 'Höckerschwan',
+          image: require('./assets/höckerschwan.jpg'),
+          audio: {
+            fileName: require('./assets/höckerschwan.mp3'),
+            attribution: 'Stanislas Wroza',
+          },
+        },
       ],
       /* eslint-enable global-require */
     };

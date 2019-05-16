@@ -1,26 +1,5 @@
 <template>
   <div id="app">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"
-    >
-    <nav class="navbar is-success" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item title">Bbirds – Berliner Vögel</a>
-      </div>
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">Spielmodus</a>
-            <div class="navbar-dropdown">
-              <a class="navbar-item" @click="playmode='pictures'">Bilder</a>
-              <a class="navbar-item" @click="playmode='sounds'">Sound</a>
-              <a class="navbar-item" @click="playmode='both'">Beides</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
     <Quiz :birds="birds" :playmode="playmode"/>
   </div>
 </template>

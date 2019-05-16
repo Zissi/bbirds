@@ -1,7 +1,5 @@
 <template>
   <div class="quiz" id="quiz">
-    <section class="section">
-      <div class="container">
         <div class="vogelbild" v-if="playmode==='pictures'|| playmode === 'both'">
         <img alt="Vogelbild" :src="answers[solution_idx].image">
         </div>
@@ -12,7 +10,7 @@
         </audio>
         </div>
 
-        <div class="answers-container">
+        <div class="answers-container is-flex">
           <AnswerButton
             v-for="(answer, idx) in answers"
             v-bind:key="answer.name"
@@ -25,16 +23,11 @@
           <button @click="next()" class="button is-rounded is-outlined is-medium">Next</button>
         </div>
       </div>
-    </section>
-  </div>
 </template>
 
 <script>
 // todos
 // space über hero loswerden
-// audio abspielen
-// auswählen ob audio oder bilder
-// gemischte option
 // blinden gerechte alternativ texte erstellen
 import AnswerButton from './AnswerButton.vue';
 
@@ -87,7 +80,6 @@ img {
   height: 300px;
 }
 .answers-container {
-  display: flex;
   justify-content: center;
 }
 

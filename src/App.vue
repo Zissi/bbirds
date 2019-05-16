@@ -1,5 +1,35 @@
 <template>
   <div id="app">
+    <nav class="navbar is-success" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item">Bbirds – Berliner Vögel</a>
+        <a
+          role="button"
+          class="navbar-burger burger"
+          :class="{'is-active': showMenu}"
+          @click="showMenu = !showMenu"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active': showMenu}">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Spielmodus</a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" @click="playmode='pictures'">Bilder</a>
+              <a class="navbar-item" @click="playmode='sounds'">Sound</a>
+              <a class="navbar-item" @click="playmode='both'">Beides</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
     <Quiz :birds="birds" :playmode="playmode"/>
   </div>
 </template>
@@ -14,6 +44,7 @@ export default {
   },
   data() {
     return {
+      showMenu: false,
       playmode: 'both',
       /* eslint-disable global-require */
       birds: [
@@ -199,14 +230,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

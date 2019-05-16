@@ -1,28 +1,30 @@
 <template>
-  <div class="quiz" id="quiz">
-        <div class="vogelbild" v-if="playmode==='pictures'|| playmode === 'both'">
-        <img alt="Vogelbild" :src="answers[solution_idx].image">
-        </div>
-        <div class="vogelsound" v-if="playmode==='sounds'|| playmode === 'both'">
-        <audio controls autoplay ref="player">
-          <source :src="answers[solution_idx].audio.fileName" type="audio/ogg">
+  <div class="quiz has-text-centered" id="quiz">
+    <div class="vogelbild" v-if="playmode==='pictures'|| playmode === 'both'">
+      <img alt="Vogelbild" :src="answers[solution_idx].image">
+    </div>
+    <div class="vogelsound" v-if="playmode==='sounds'|| playmode === 'both'">
+      <audio controls autoplay ref="player">
+        <source
+          :src="answers[solution_idx].audio.fileName"
+          type="audio/ogg">
           Your browser does not support the audio element.
-        </audio>
-        </div>
+      </audio>
+    </div>
 
-        <div class="answers-container is-flex">
-          <AnswerButton
-            v-for="(answer, idx) in answers"
-            v-bind:key="answer.name"
-            ref="answerButton"
-            :answer="answer.name"
-            :isSolution="idx===solution_idx"
-          />
-        </div>
-        <div class="next-button-container">
-          <button @click="next()" class="button is-rounded is-outlined is-medium">Next</button>
-        </div>
-      </div>
+    <div class="answers-container">
+      <AnswerButton
+        v-for="(answer, idx) in answers"
+        v-bind:key="answer.name"
+        ref="answerButton"
+        :answer="answer.name"
+        :isSolution="idx===solution_idx"
+      />
+    </div>
+    <div class="next-button-container">
+      <button @click="next()" class="button is-rounded is-outlined is-medium">Next</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -81,17 +83,19 @@ img {
 }
 .answers-container {
   justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .next-button-container {
   padding: 10px;
 }
 
-.vogelbild{
+.vogelbild {
   padding: 10px;
 }
 
-.vogelsound{
+.vogelsound {
   padding: 10px;
 }
 </style>

@@ -224,6 +224,110 @@ export default {
             attribution: 'Stanislas Wroza',
           },
         },
+        {
+          name: 'Nebelkrähe',
+          image: require('./assets/nebelkrähe.jpg'),
+          audio: {
+            fileName: require('./assets/nebelkrähe.mp3'),
+            attribution: 'Jorge Leitão',
+          },
+        },
+        {
+          name: 'Nebelkrähe',
+          image: require('./assets/nebelkrähe.jpg'),
+          audio: {
+            fileName: require('./assets/nebelkrähe.mp3'),
+            attribution: 'Jorge Leitão',
+          },
+        },
+        {
+          name: 'Eichelhäher',
+          image: require('./assets/eichelhäher.jpg'),
+          audio: {
+            fileName: require('./assets/eichelhäher.ogg'),
+            attribution: 'Vladimir Yu. Arkhipov, Arkhivov',
+          },
+        },
+        {
+          name: 'Elster',
+          image: require('./assets/elster.jpg'),
+          audio: {
+            fileName: require('./assets/elster.mp3'),
+            attribution: 'Lars Edenius',
+          },
+        },
+        {
+          name: 'Haubentaucher',
+          image: require('./assets/haubentaucher.jpg'),
+          audio: {
+            fileName: require('./assets/haubentaucher.mp3'),
+            attribution: 'Stein Ø. Nilsen',
+          },
+        },
+        {
+          name: 'Ringeltaube',
+          image: require('./assets/ringeltaube.jpg'),
+          audio: {
+            fileName: require('./assets/ringeltaube.ogg'),
+            attribution: 'Sleepytomcat (Jens Kraglund)',
+          },
+        },
+        {
+          name: 'Dohle',
+          image: require('./assets/dohle.jpg'),
+          audio: {
+            fileName: require('./assets/dohle.mp3'),
+            attribution: 'Jorge Leitão',
+          },
+        },
+        {
+          name: 'Eisvogel',
+          image: require('./assets/eisvogel.jpg'),
+          audio: {
+            fileName: require('./assets/eisvogel.mp3'),
+            attribution: 'Bertrand Dallet',
+          },
+        },
+        {
+          name: 'Baumläufer',
+          image: require('./assets/baumläufer.jpg'),
+          audio: {
+            fileName: require('./assets/baumläufer.mp3'),
+            attribution: 'Twan Mols',
+          },
+        },
+        {
+          name: 'Hausrotschwanz',
+          image: require('./assets/hausrotschwanz.jpg'),
+          audio: {
+            fileName: require('./assets/hausrotschwanz.ogg'),
+            attribution: 'Waithamai',
+          },
+        },
+        {
+          name: 'Graureiher',
+          image: require('./assets/graureiher.jpg'),
+          audio: {
+            fileName: require('./assets/graureiher.mp3'),
+            attribution: 'brickegickel',
+          },
+        },
+        {
+          name: 'Girlitz',
+          image: require('./assets/girlitz.jpg'),
+          audio: {
+            fileName: require('./assets/girlitz.mp3'),
+            attribution: 'Niels Poul Dreyer',
+          },
+        },
+        {
+          name: 'Lachmöwe',
+          image: require('./assets/lachmöwe.jpg'),
+          audio: {
+            fileName: require('./assets/lachmöwe.mp3'),
+            attribution: 'Aladdin',
+          },
+        },
       ],
       /* eslint-enable global-require */
     };
